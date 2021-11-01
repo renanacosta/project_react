@@ -3,9 +3,9 @@
 Neste Projeto será implementado o conhecimento adiquirido até aqui, para "converter-mos" o projeto "React_Team_Project-master" em React.
 <br /><br />
 <div float="left" align="center">
-<img alt="Renan-pic" height="450" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139703557-d1a3baa8-250e-45ce-916a-b3985b509b3f.png">
-<img alt="Renan-pic" height="450" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139704081-5e7dc9eb-8036-43f7-9dc5-bad60f9ffa55.png">
-<img alt="Renan-pic" height="450" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139704145-93b97085-5670-4c70-b1fc-5e846bcb4bb0.png">
+<img alt="Renan-pic" height="400" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139703557-d1a3baa8-250e-45ce-916a-b3985b509b3f.png">
+<img alt="Renan-pic" height="400" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139704081-5e7dc9eb-8036-43f7-9dc5-bad60f9ffa55.png">
+<img alt="Renan-pic" height="400" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139704145-93b97085-5670-4c70-b1fc-5e846bcb4bb0.png">
 </div>
 
 
