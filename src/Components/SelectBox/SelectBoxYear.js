@@ -6,7 +6,6 @@ const SelectBoxYear = () => {
     { length: 110 },
     (a, b) => b + new Date().getFullYear() - 109,
   );
-  console.log(anos);
   return (
     <>
       <label className="labels" htmlFor="year">

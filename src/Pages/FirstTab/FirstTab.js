@@ -11,7 +11,6 @@ import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 
 const FirstTab = ({menu}) => {
   /* Starting codes for auto age calculation */
-  console.log(menu);
   return (
     <>
       <section id="first-tab">

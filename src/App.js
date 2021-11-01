@@ -8,14 +8,16 @@ import SuccessTab from './Pages/SuccessTab/SucessTab';
 
 const App = () => {
   const [tabName, setTabName] = React.useState('FirstTab');
+  const [navTab, setNavTab] = React.useState();
 
-  const tb1 = <FirstTab menu={<TabsMenu active1 />} />;
-  const tb2 = <SecondTab menu={<TabsMenu active2 />} />;
-  const tb3 = <ThirdTab menu={<TabsMenu active3 />} />;
+  const tb1 = <FirstTab menu={<TabsMenu active1 setNavTab={setNavTab} />} />;
+  const tb2 = <SecondTab menu={<TabsMenu active2 setNavTab={setNavTab}/>} />;
+  const tb3 = <ThirdTab menu={<TabsMenu active3 setNavTab={setNavTab}/>} />;
 
   const [showTb1, setShowTb1] = React.useState(true);
   const [showTb2, setShowTb2] = React.useState(false);
   const [showTb3, setShowTb3] = React.useState(false);
+
 
   const [tabRender, setTabRender] = React.useState(tb1);
 
@@ -34,6 +36,28 @@ const App = () => {
       setShowTb3(true);
     }
   };
+
+  React.useEffect(() => {
+    if (navTab === 'basic') {
+      setTabName('First Tab');
+      setTabRender(tb1);
+      setShowTb1(true);
+      setShowTb2(false);
+      setShowTb3(false);
+    } else if (navTab === 'social') {
+      setTabName('Second Tab');
+      setTabRender(tb2);
+      setShowTb1(false);
+      setShowTb2(true);
+      setShowTb3(false);
+    } else if (navTab === 'certificates') {
+      setTabName('Third Tab');
+      setTabRender(tb3);
+      setShowTb1(false);
+      setShowTb2(false);
+      setShowTb3(true);
+    }
+  }, [navTab, tb1, tb2, tb3]);
 
   return (
     <>
