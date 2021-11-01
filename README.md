@@ -35,3 +35,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [CSS](https://reactnative.dev/)
 - [HTML](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/en/)
+
+<!-- 
+https://www.google.com/search?q=personalizar+perfil+github+pacman&client=firefox-b-d&ei=n91_YaqHCdbW1sQP4vGoiAY&oq=personalizar+perfil+github+pacman&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CMgUIABDNAjoHCAAQRxCwAzoGCAAQFhAeOggIIRAWEB0QHjoFCCEQoAE6BwghEAoQoAFKBAhBGABQiRZYyTBgvTJoAnACeACAAd8BiAGPCZIBBTAuNy4xmAEAoAEByAEIwAEB&sclient=gws-wiz&ved=0ahUKEwjq0rablffzAhVWq5UCHeI4CmEQ4dUDCA0&uact=5
+
+https://www.google.com/search?q=personalizar+perfil+github+pacman&client=firefox-b-d&ei=n91_YaqHCdbW1sQP4vGoiAY&oq=personalizar+perfil+github+pacman&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CMgUIABDNAjoHCAAQRxCwAzoGCAAQFhAeOggIIRAWEB0QHjoFCCEQoAE6BwghEAoQoAFKBAhBGABQiRZYyTBgvTJoAnACeACAAd8BiAGPCZIBBTAuNy4xmAEAoAEByAEIwAEB&sclient=gws-wiz&ved=0ahUKEwjq0rablffzAhVWq5UCHeI4CmEQ4dUDCA0&uact=5 -->
