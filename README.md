@@ -1,8 +1,15 @@
 <h1 align="center"> Projeto 2 - React  <img alt="Renan-pic" height="35" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139155648-84368f96-ed86-4d45-b5dc-88f35bebbac5.png"></h1>
-<br>
-Neste Projeto será implementado o conhecimento adiquirido até aqui, para "converter-mos" o projeto "React_Team_Project-master" em React.</br>
+<br />
+Neste Projeto será implementado o conhecimento adiquirido até aqui, para "converter-mos" o projeto "React_Team_Project-master" em React.
+<br /><br />
+<div float="left" align="center">
+<img alt="Renan-pic" height="450" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139703557-d1a3baa8-250e-45ce-916a-b3985b509b3f.png">
+<img alt="Renan-pic" height="450" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139704081-5e7dc9eb-8036-43f7-9dc5-bad60f9ffa55.png">
+<img alt="Renan-pic" height="450" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139704145-93b97085-5670-4c70-b1fc-5e846bcb4bb0.png">
+</div>
 
-<h4 align="center"> 🚧  React Projeto 2 🚀 Em construção...  🚧 </h4>
+
+<h4 align="center"> 🚧  React Projeto 2 🚀 Em construção...  🚧 </h4><br />
 
 ### Checklist
 
@@ -35,8 +42,3 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [CSS](https://reactnative.dev/)
 - [HTML](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/en/)
-
-<!-- 
-https://www.google.com/search?q=personalizar+perfil+github+pacman&client=firefox-b-d&ei=n91_YaqHCdbW1sQP4vGoiAY&oq=personalizar+perfil+github+pacman&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CMgUIABDNAjoHCAAQRxCwAzoGCAAQFhAeOggIIRAWEB0QHjoFCCEQoAE6BwghEAoQoAFKBAhBGABQiRZYyTBgvTJoAnACeACAAd8BiAGPCZIBBTAuNy4xmAEAoAEByAEIwAEB&sclient=gws-wiz&ved=0ahUKEwjq0rablffzAhVWq5UCHeI4CmEQ4dUDCA0&uact=5
-
-https://www.google.com/search?q=personalizar+perfil+github+pacman&client=firefox-b-d&ei=n91_YaqHCdbW1sQP4vGoiAY&oq=personalizar+perfil+github+pacman&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CMgUIABDNAjoHCAAQRxCwAzoGCAAQFhAeOggIIRAWEB0QHjoFCCEQoAE6BwghEAoQoAFKBAhBGABQiRZYyTBgvTJoAnACeACAAd8BiAGPCZIBBTAuNy4xmAEAoAEByAEIwAEB&sclient=gws-wiz&ved=0ahUKEwjq0rablffzAhVWq5UCHeI4CmEQ4dUDCA0&uact=5 -->
