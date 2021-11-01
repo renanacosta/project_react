@@ -7,7 +7,7 @@ Neste Projeto será implementado o conhecimento adiquirido até aqui, para "conv
 
 <h4 align="center"> 🚧  React Projeto 2 🚀 Em construção...  🚧 </h4>
 
-### Features
+### Checklist
 
 - [x] Component: Buttons
 - [x] Component: Title
