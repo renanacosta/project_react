@@ -1,5 +1,5 @@
 <h1 align="center"> React_Project-master </h1>
-<p align="center">Projeto do programa de Bolsas da Compasso - React</p>
+<p align="center">Projeto 2 do Programa de Bolsas Compasso Uol - React</p>
 <div align="center">
 <img align="center" alt="Renan-pic" height="200" style="border-radius:25px;" src="https://user-images.githubusercontent.com/36648528/139155648-84368f96-ed86-4d45-b5dc-88f35bebbac5.png">
   </div><br>
