@@ -4,8 +4,8 @@ import { ChevronRight } from 'react-feather';
 const ButtonsNext = () => {
     return (
         <>
-            <button className="btn" type="button">
-                More
+            <button className="btn">
+                Next
                 <ChevronRight />
             </button>
         </>
@@ -13,3 +13,5 @@ const ButtonsNext = () => {
 }
 
 export default ButtonsNext
+
+

@@ -5,47 +5,21 @@ import InputCertificates from '../../Components/InputCertificates/InputCertifica
 import GenericInputs from '../../Components/GenericInputs/GenericInputs';
 import Titles from '../../Components/Titles/Titles';
 import './ThirdTab.css';
+import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 
-const ThirdTab = ({ tabsMenu }) => {
-  const [certificates, setcertificates] = React.useState([]);
-  const [teamname, setteamname] = React.useState('');
-  const [institution, setinstitution] = React.useState('');
-  const [graduation, setgraduation] = React.useState('');
-
-  React.useEffect(() => {
-    if (localStorage.getItem('certificates') !== null) {
-      setcertificates(localStorage.getItem('certificates'));
-    }
-    if (localStorage.getItem('teamname') !== null) {
-      setteamname(localStorage.getItem('teamname'));
-    }
-    if (localStorage.getItem('institution') !== null) {
-      setinstitution(localStorage.getItem('institution'));
-    }
-    if (localStorage.getItem('graduation') !== null) {
-      setgraduation(localStorage.getItem('graduation'));
-    }
-  }, []);
-
-  React.useEffect(() => {
-    localStorage.setItem('certificates', certificates);
-    localStorage.setItem('teamname', teamname);
-    localStorage.setItem('institution', institution);
-    localStorage.setItem('graduation', graduation);
-  }, [certificates, teamname, institution, graduation]);
+const ThirdTab = ({ menu }) => {
+  
 
   return (
     <>
       <section id="third-tab">
         <Titles text="Team Sign Up" />
 
-        {tabsMenu}
+        {menu}
 
         <div id="content_3tab">
           <div id="entry-certificates" className="input-block div-heart">
             <InputCertificates
-              value={certificates}
-              setcertificates={setcertificates}
             />
           </div>
           <div className="input-block btn-space-between btn-more">
@@ -72,8 +46,6 @@ const ThirdTab = ({ tabsMenu }) => {
               label="Team Name *"
               id="teamName"
               placeholder="My Teams Name"
-              value={teamname}
-              setteamname={setteamname}
               required
             />
           </div>
@@ -84,8 +56,6 @@ const ThirdTab = ({ tabsMenu }) => {
               label="Institution *"
               id="institution"
               placeholder="Universidade Federal da Paraíba"
-              value={institution}
-              setinstitution={setinstitution}
               required
             />
           </div>
@@ -96,8 +66,6 @@ const ThirdTab = ({ tabsMenu }) => {
               label="Graduation *"
               id="graduation"
               placeholder="Ciência da Computação"
-              value={graduation}
-              setgraduation={setgraduation}
               required
             />
           </div>

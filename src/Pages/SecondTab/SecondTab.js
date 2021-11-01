@@ -1,33 +1,19 @@
 import React from 'react';
 import ButtonsNext from '../../Components/Buttons/ButtonsNext/ButtonsNext';
 import GenericInputs from '../../Components/GenericInputs/GenericInputs';
+import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 import Titles from '../../Components/Titles/Titles';
 import './SecondTab.css';
 
-const SecondTab = ({ tabsMenu }) => {
-  const [linkedin, setlinkedin] = React.useState('');
-  const [github, setgithub] = React.useState('');
-
-  React.useEffect(() => {
-    if (localStorage.getItem('linkedin') !== null) {
-      setlinkedin(localStorage.getItem('linkedin'));
-    }
-    if (localStorage.getItem('github') !== null) {
-      setgithub(localStorage.getItem('github'));
-    }
-  }, []);
-
-  React.useEffect(() => {
-    localStorage.setItem('linkedin', linkedin);
-    localStorage.setItem('github', github);
-  }, [linkedin, github]);
+const SecondTab = ({ menu }) => {
+  
 
   return (
     <>
       <section id="second-tab">
         <Titles text="Team Sign Up" />
 
-        {tabsMenu}
+        {menu}
 
         <div id="content_2tab">
           <div className="input-block">
@@ -35,8 +21,6 @@ const SecondTab = ({ tabsMenu }) => {
               type="text"
               label="LinkedIn"
               id="linkedin"
-              value={linkedin}
-              setlinkedin={setlinkedin}
               placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
             />
           </div>
@@ -46,8 +30,6 @@ const SecondTab = ({ tabsMenu }) => {
               type="text"
               label="Github *"
               id="github"
-              value={github}
-              setgithub={setgithub}
               placeholder="https://github.com/example"
               required
             />

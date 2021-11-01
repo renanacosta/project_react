@@ -13,7 +13,7 @@ const InputCertificates = () => {
           type="text"
           id="certificates"
           className="input-heart"
-          placeholder="https://cursos.alura.com.br/certificate/4ad81d87-33a3-48f4-86ac-5d4e3747b761"
+          placeholder="https://linkedin.com/in/foo-bar-3a0560104/"
         />
         <button id="btn_heart">
           <Heart />

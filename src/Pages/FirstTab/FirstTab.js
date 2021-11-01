@@ -7,91 +7,16 @@ import SelectBoxMonth from '../../Components/SelectBox/SelectBoxMonth';
 import SelectBoxYear from '../../Components/SelectBox/SelectBoxYear';
 import CheckBox from '../../Components/CheckBox/CheckBox';
 import ButtonsNext from '../../Components/Buttons/ButtonsNext/ButtonsNext';
+import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 
-const FirstTab = ({ tabsMenu, topnavigation }) => {
+const FirstTab = ({menu}) => {
   /* Starting codes for auto age calculation */
-  const [birthday, setBirthday] = React.useState({
-    day: 0,
-    month: 0,
-    year: 0,
-  });
-
-  const [age, setage] = React.useState('');
-  React.useEffect(() => {
-    const birth = new Date(birthday.year, birthday.month - 1, birthday.day);
-    if (birthday.year === 0) {
-      setage('');
-    } else if (birthday.year !== 0) {
-      setage(
-        Math.floor(
-          Math.ceil(
-            Math.abs(birth.getTime() - new Date().getTime()) /
-              (1000 * 3600 * 24),
-          ) / 365.25,
-        ),
-      );
-    }
-  }, [birthday]);
-  /* Ending codes for auto age calculation */
-
-  /* Variables for Saving Informations */
-  const [name, setname] = React.useState('');
-  const [nickname, setnickname] = React.useState('');
-  const [email, setemail] = React.useState('');
-  const [phone, setphone] = React.useState('');
-  const [day, setday] = React.useState('');
-  const [month, setmonth] = React.useState('');
-  const [year, setyear] = React.useState('');
-  const [checked, setchecked] = React.useState('');
-
-  React.useEffect(() => {
-    if (localStorage.getItem('name') !== null) {
-      setname(localStorage.getItem('name'));
-    }
-    if (localStorage.getItem('nickname') !== null) {
-      setnickname(localStorage.getItem('nickname'));
-    }
-    if (localStorage.getItem('email') !== null) {
-      setemail(localStorage.getItem('email'));
-    }
-    if (localStorage.getItem('phone') !== null) {
-      setphone(localStorage.getItem('phone'));
-    }
-    if (localStorage.getItem('day') !== null) {
-      setday(localStorage.getItem('day'));
-    }
-    if (localStorage.getItem('month') !== null) {
-      setmonth(localStorage.getItem('month'));
-    }
-    if (localStorage.getItem('year') !== null) {
-      setyear(localStorage.getItem('year'));
-    }
-    if (localStorage.getItem('age') !== null) {
-      setage(localStorage.getItem('age'));
-    }
-    if (localStorage.getItem('checked') !== null) {
-      setchecked(localStorage.getItem('checked'));
-    }
-  }, []);
-
-  React.useEffect(() => {
-    localStorage.setItem('name', name);
-    localStorage.setItem('nickname', nickname);
-    localStorage.setItem('email', email);
-    localStorage.setItem('phone', phone);
-    localStorage.setItem('day', day);
-    localStorage.setItem('month', month);
-    localStorage.setItem('year', year);
-    localStorage.setItem('age', age);
-    localStorage.setItem('checked', checked);
-  }, [name, nickname, email, phone, day, month, year, age, checked]);
-
-  /* Ending of variables for Saving Informations */
+  console.log(menu);
   return (
     <>
       <section id="first-tab">
         <Titles text="Team Sign Up" />
-        {tabsMenu}
+        {menu}
 
         <div id="content_1tab">
           <div className="input-block">
@@ -99,9 +24,7 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
               type="text"
               label="Full Name *"
               id="fullname"
-              value={name}
               placeholder="Foo Bar"
-              setname={setname}
               required
             />
           </div>
@@ -111,9 +34,7 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
               type="text"
               label="Nickname"
               id="nickname"
-              value={nickname}
               placeholder="Juanito"
-              setnickname={setnickname}
             />
           </div>
 
@@ -123,9 +44,7 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
                 type="email"
                 label="Email *"
                 id="email"
-                value={email}
                 placeholder="foo@bar .com"
-                setemail={setemail}
                 required
               />
             </div>
@@ -135,9 +54,7 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
                 type="text"
                 label="Phone"
                 id="phone"
-                value={phone}
                 placeholder="(83) 00000-0000"
-                setphone={setphone}
               />
             </div>
           </div>
@@ -149,29 +66,14 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
           <div className="input-block flex-line">
             <div className="grid-collum four-inputs-by-line">
               <SelectBoxDay
-                birthday={birthday}
-                setBirthday={setBirthday}
-                day={day}
-                value={day}
-                setday={setday}
               />
             </div>
             <div className="grid-collum four-inputs-by-line">
               <SelectBoxMonth
-                birthday={birthday}
-                setBirthday={setBirthday}
-                month={month}
-                value={month}
-                setmonth={setmonth}
               />
             </div>
             <div className="grid-collum four-inputs-by-line">
               <SelectBoxYear
-                birthday={birthday}
-                setBirthday={setBirthday}
-                year={year}
-                value={year}
-                setyear={setyear}
               />
             </div>
 
@@ -180,7 +82,6 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
                 type="number"
                 label="Age"
                 id="age"
-                value={age}
                 disabled
               />
             </div>
@@ -189,8 +90,6 @@ const FirstTab = ({ tabsMenu, topnavigation }) => {
           <div id="terms" className="input-block">
             <CheckBox
               label="I accept the terms and privacy"
-              setchecked={setchecked}
-              checked={checked}
             />
           </div>
 
