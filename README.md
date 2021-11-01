@@ -5,4 +5,4 @@ Projeto do programa de Bolsas da Compasso - React
   </div><br>
 Neste Projeto será implementado o conhecimento adiquirido até aqui, para "converter-mos" o projeto "React_Team_Project-master" em React.</br>
 
-<h4 align="center"> 🚧  React Select 🚀 Em construção...  🚧 </h4>
+<h4 align="center"> 🚧  React Projeto 2 🚀 Em construção...  🚧 </h4>
