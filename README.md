@@ -12,3 +12,14 @@ Neste Projeto será implementado o conhecimento adiquirido até aqui, para "conv
 - [x] Cadastro de usuário
 - [x] Cadastro de cliente
 - [ ] Cadastro de produtos
+
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [React](https://pt-br.reactjs.org/)
+- [Javascript](https://www.javascript.com/)
+- [CSS](https://reactnative.dev/)
+- [HTML](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en/)
