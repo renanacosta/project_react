@@ -6,3 +6,9 @@
 Neste Projeto será implementado o conhecimento adiquirido até aqui, para "converter-mos" o projeto "React_Team_Project-master" em React.</br>
 
 <h4 align="center"> 🚧  React Projeto 2 🚀 Em construção...  🚧 </h4>
+
+### Features
+
+- [x] Cadastro de usuário
+- [x] Cadastro de cliente
+- [ ] Cadastro de produtos
