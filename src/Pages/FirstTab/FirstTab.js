@@ -10,7 +10,30 @@ import ButtonsNext from '../../Components/Buttons/ButtonsNext/ButtonsNext';
 import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 
 const FirstTab = ({menu}) => {
-  /* Starting codes for auto age calculation */
+  const [birthday, setBirthday] = React.useState({
+    day: 0,
+    month: 0,
+    year: 0,
+  });
+
+  const [age, setAge] = React.useState('');
+  React.useEffect(() => {
+    const birth = new Date(birthday.year, birthday.month - 1, birthday.day);
+
+    if (birthday.year === 0) {
+      setAge('');
+    } else if (birthday.year !== 0) {
+      setAge(
+        Math.floor(
+          Math.ceil(
+            Math.abs(birth.getTime() - new Date().getTime()) /
+            (1000 * 3600 * 24),
+          ) / 365.25,
+        ),
+      );
+    }
+  }, [birthday]);
+
   return (
     <>
       <section id="first-tab">
@@ -64,15 +87,15 @@ const FirstTab = ({menu}) => {
 
           <div className="input-block flex-line">
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxDay
+              <SelectBoxDay birthday={birthday} setBirthday={setBirthday}
               />
             </div>
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxMonth
+              <SelectBoxMonth birthday={birthday} setBirthday={setBirthday}
               />
             </div>
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxYear
+              <SelectBoxYear birthday={birthday} setBirthday={setBirthday}
               />
             </div>
 
@@ -81,6 +104,7 @@ const FirstTab = ({menu}) => {
                 type="number"
                 label="Age"
                 id="age"
+                placeholder={age}
                 disabled
               />
             </div>
