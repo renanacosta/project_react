@@ -1,7 +1,7 @@
 import React from 'react';
 import './SelectBox.css';
 
-const SelectBoxMonth = () => {
+const SelectBoxMonth = (props) => {
   const meses = Array.from({ length: 12 }, (a, b) => ++b);
 
   return (
@@ -14,6 +14,10 @@ const SelectBoxMonth = () => {
         id="month"
         name="month"
         required
+        onChange={(e) => {props.setBirthday({ ...props.birthday, month: e.target.value });
+          props.setmonth(e.target.value);
+        }}
+
       >
         <option value=""></option>
         {meses.map((mes) => {
@@ -21,11 +25,12 @@ const SelectBoxMonth = () => {
             mes = `0${mes}`;
           }
           return (
-            <option key={mes} value={mes}>
+            <option selected={parseInt(props.birthday.month) === parseInt(mes)} key={mes} value={mes}>
               {mes}
             </option>
           );
         })}
+        ;
       </select>
     </>
   );

@@ -5,9 +5,31 @@ import InputCertificates from '../../Components/InputCertificates/InputCertifica
 import GenericInputs from '../../Components/GenericInputs/GenericInputs';
 import Titles from '../../Components/Titles/Titles';
 import './ThirdTab.css';
-import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 
 const ThirdTab = ({ menu }) => {
+
+  const [TeamName, setTeamName] = React.useState('');
+  const [Institution, setInstitution] = React.useState('');
+  const [Graduation, setGraduation] = React.useState('');
+
+  React.useEffect(() => {
+    if (localStorage.getItem('TeamName') !== null) {
+      setTeamName(localStorage.getItem('TeamName'));
+    }
+    if (localStorage.getItem('Institution') !== null) {
+      setInstitution(localStorage.getItem('Institution'))
+    }
+    if (localStorage.getItem('Graduation') !== null) {
+      setGraduation(localStorage.getItem('Graduation'))
+    };
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem('TeamName', TeamName);
+    localStorage.setItem('Institution', Institution);
+    localStorage.setItem('Graduation', Graduation);
+  }, [TeamName, Institution, Graduation])
+
   
 
   return (
@@ -45,7 +67,9 @@ const ThirdTab = ({ menu }) => {
               type="text"
               label="Team Name *"
               id="teamName"
+              value={TeamName}
               placeholder="My Teams Name"
+              onChange={(e) => setTeamName(e.target.value)}
               required
             />
           </div>
@@ -55,7 +79,9 @@ const ThirdTab = ({ menu }) => {
               type="text"
               label="Institution *"
               id="institution"
+              value={Institution}
               placeholder="Universidade Federal da Paraíba"
+              onChange={(e) => setInstitution(e.target.value)}
               required
             />
           </div>
@@ -65,7 +91,9 @@ const ThirdTab = ({ menu }) => {
               type="text"
               label="Graduation *"
               id="graduation"
+              value={Graduation}
               placeholder="Ciência da Computação"
+              onChange={(e) => setGraduation(e.target.value)}
               required
             />
           </div>

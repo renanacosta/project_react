@@ -3,8 +3,8 @@ import TabsMenu from './Components/TabsMenu/TabsMenu';
 import FirstTab from './Pages/FirstTab/FirstTab';
 import SecondTab from './Pages/SecondTab/SecondTab';
 import ThirdTab from './Pages/ThirdTab/ThirdTab';
-import './App.css';
 import SuccessTab from './Pages/SuccessTab/SucessTab';
+import './App.css';
 
 const App = () => {
   const [tabName, setTabName] = React.useState('FirstTab');
@@ -34,9 +34,15 @@ const App = () => {
       setTabRender(tb3);
       setShowTb2(false);
       setShowTb3(true);
+    } else if (showTb3) {
+      setTabName('SuccessTab');
+      setTabRender(<SuccessTab />);
+      setShowTb1(false);
+      setShowTb2(false);
+      setShowTb3(false);
     }
   };
-
+console.log(showTb1, showTb2, showTb3);
   React.useEffect(() => {
     if (navTab === 'basic') {
       setTabName('First Tab');
@@ -57,7 +63,7 @@ const App = () => {
       setShowTb2(false);
       setShowTb3(true);
     }
-  }, [navTab, tb1, tb2, tb3]);
+  }, [navTab]);
 
   return (
     <>

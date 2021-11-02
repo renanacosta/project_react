@@ -5,7 +5,7 @@ import { Check } from 'react-feather';
 const ButtonsFinish = () => {
     return (
         <>
-            <button className="btn" type="button">
+            <button className="btn">
                 Finish
                 <Check />
             </button>

@@ -1,12 +1,30 @@
 import React from 'react';
 import ButtonsNext from '../../Components/Buttons/ButtonsNext/ButtonsNext';
 import GenericInputs from '../../Components/GenericInputs/GenericInputs';
-import TabsMenu from '../../Components/TabsMenu/TabsMenu';
 import Titles from '../../Components/Titles/Titles';
 import './SecondTab.css';
 
 const SecondTab = ({ menu }) => {
-  
+  const [Linkedin, setLinkedin] = React.useState('');
+  const [Github, setGithub] = React.useState('');
+
+React.useEffect(() => {
+  if (localStorage.getItem('Linkedin') !== null) {
+    setLinkedin(localStorage.getItem('Linkedin'));
+  }
+  if (localStorage.getItem('Github') !== null) {
+    setGithub(localStorage.getItem('Github'))};
+    console.log('useEffect1')
+  }, [])
+
+React.useEffect(() => {
+    localStorage.setItem('Linkedin', Linkedin);
+    localStorage.setItem('Github', Github);
+  console.log('useEffect2')
+
+  }, [Linkedin, Github])
+
+
 
   return (
     <>
@@ -22,6 +40,8 @@ const SecondTab = ({ menu }) => {
               label="LinkedIn"
               id="linkedin"
               placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
+              value={Linkedin}
+              onChange={(e) => setLinkedin(e.target.value)}
             />
           </div>
 
@@ -31,6 +51,8 @@ const SecondTab = ({ menu }) => {
               label="Github *"
               id="github"
               placeholder="https://github.com/example"
+              value={Github}
+              onChange={(e) => setGithub(e.target.value)}
               required
             />
             <span id="erroGithub"></span>
