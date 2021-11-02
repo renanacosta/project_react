@@ -28,7 +28,7 @@ Neste Projeto será implementado o conhecimento adiquirido até aqui, para "conv
 - [x] Event: Show inputs error messenger
 - [x] Feat: Inputs validation with JavaScript
 - [x] [EXTRA] Feat: Responsivity
-- [ ] Event: Auto age calculator
+- [x] Event: Auto age calculator
 - [ ] Feat: Auto save on windows change
 - [ ] Event: Adding new certificates + favorites certificates
 </br>
