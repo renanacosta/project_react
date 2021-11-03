@@ -35,7 +35,7 @@
 }
 
 .isActive {
-  animation: scale-in-ver-top 0.6s;
+  animation: scale-in-ver-top 0.2s;
   color: #fff;
   padding-left: 5px;
   margin-bottom: 0px;

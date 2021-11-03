@@ -132,7 +132,6 @@ const FirstTab = ({ menu }) => {
                 label="Email *"
                 id="email"
                 value={Email}
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 placeholder="foo@bar.com"
                 onChange={(e) => setEmail(e.target.value)}
                 required
