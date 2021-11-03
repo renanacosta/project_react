@@ -14,13 +14,11 @@ React.useEffect(() => {
   }
   if (localStorage.getItem('Github') !== null) {
     setGithub(localStorage.getItem('Github'))};
-    console.log('useEffect1')
   }, [])
 
 React.useEffect(() => {
     localStorage.setItem('Linkedin', Linkedin);
     localStorage.setItem('Github', Github);
-  console.log('useEffect2')
 
   }, [Linkedin, Github])
 
@@ -39,6 +37,7 @@ React.useEffect(() => {
               type="text"
               label="LinkedIn"
               id="linkedin"
+              pattern="https?://(www\.)?linkedin.com/in/.*"
               placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
               value={Linkedin}
               onChange={(e) => setLinkedin(e.target.value)}
@@ -50,6 +49,7 @@ React.useEffect(() => {
               type="text"
               label="Github *"
               id="github"
+              pattern="https?://(www\.)?github.com/[a-zA-Z0-9-_]+"
               placeholder="https://github.com/example"
               value={Github}
               onChange={(e) => setGithub(e.target.value)}

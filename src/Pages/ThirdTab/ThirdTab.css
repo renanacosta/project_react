@@ -3,7 +3,7 @@
 }
 
 .btn-more {
-  margin-top: -10px !important;
+  margin-top: -5px !important;
 }
 
 .prevent-align-flex-start {
@@ -13,8 +13,10 @@
 .btn-finish {
   margin-top: 51px !important;
 }
+
 .dropDown {
   position: absolute;
+  margin-top: -5px !important;
 }
 
 .dropDown ul {
@@ -22,13 +24,15 @@
   border-radius: 5px;
   margin-top: -8px;
   background-color: rgba(7, 78, 232, 0.8);
-}
+} 
 .dropDown ul li:first-child {
   padding-top: 16px;
 }
 .dropDown ul li:last-child {
   margin-bottom: 12px;
 }
+
+
 
 .isNotActive {
   display: none;

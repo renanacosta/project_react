@@ -5,7 +5,7 @@ import {XCircle } from 'react-feather';
 const ButtonsClose = () => {
     return (
         <>
-            <button className="btn" type="button">
+            <button className="btn">
                 Close
                 <XCircle />
             </button>

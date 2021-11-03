@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ButtonsFinish from '../../Components/Buttons/ButtonsFinish/ButtonsFinish'
 import ButtonsMore from '../../Components/Buttons/ButtonsMore/ButtonsMore';
 import InputCertificates from '../../Components/InputCertificates/InputCertificates';
 import GenericInputs from '../../Components/GenericInputs/GenericInputs';
 import Titles from '../../Components/Titles/Titles';
+import { Heart } from 'react-feather';
+import { ChevronDown } from 'react-feather';
+import '../../Components/Buttons/Buttons.css';
+import '../../Components/Buttons/ButtonsClose/ButtonsClose'
 import './ThirdTab.css';
+
 
 const ThirdTab = ({ menu }) => {
 
@@ -30,7 +35,34 @@ const ThirdTab = ({ menu }) => {
     localStorage.setItem('Graduation', Graduation);
   }, [TeamName, Institution, Graduation])
 
-  
+// inputCertificates
+  const [certificado, setCertificado] = useState('')
+// coração
+  const [heart, setHeart] = useState(false)
+// lista de certificados
+  const [listUnfavorited, setListUnfavorited] = useState([])
+
+  const [listFavorited, setListFavorited] = useState([])
+
+    const MoreFunction = () => {
+
+      if (certificado !== '') {
+      if ((listFavorited.length + listUnfavorited.length) < 5) {
+        if (heart) {
+          setListFavorited([...listFavorited, certificado])
+        }
+        else {
+          setListUnfavorited([...listUnfavorited, certificado])
+        }
+        setCertificado('')
+        setHeart(false)
+      } else {
+        alert('Você atingiu o limite de 5 certificados')
+      }
+    }
+  }
+
+
 
   return (
     <>
@@ -41,24 +73,42 @@ const ThirdTab = ({ menu }) => {
 
         <div id="content_3tab">
           <div id="entry-certificates" className="input-block div-heart">
-            <InputCertificates
-            />
+            <InputCertificates heart = {heart} setHeart = {setHeart} 
+            certificado = {certificado} setCertificado = {setCertificado}/>
           </div>
           <div className="input-block btn-space-between btn-more">
             <div className="certificates-list">
               <ul className="certificates-ul">
                 <li className="certificates-opt hide">
                   <span className="certificates-span">Certificates</span>
-                  <i data-feather="chevron-down"></i>
                 </li>
-                <div className="certificates-added hide">
-                  <div className="certificates-favorite"></div>
-                  <div className="certificates-normal"></div>
+                <div className="certificates-favorited">
+                  {(listFavorited.length > 0 || listUnfavorited.length > 0) && (
+                    <div>
+                      <button type="button" className="btn"> 
+                        List of Certificates 
+                      <ChevronDown color='#074EE8' fill='white' />
+                      </button>
+
+                      <ul className="Dropdown" id="Dropdown">
+                        {listFavorited.map((item, index) => (
+                          <li key={index}>
+                            {item} <Heart color='#074EE8' fill='#074EE8' />
+                          </li>
+                        ))}
+                        {listUnfavorited.map((item, index) => (
+                          <li key={index}>
+                            {item} <Heart color='#074EE8' fill='white' />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </ul>
             </div>
             <div className="prevent-align-flex-start">
-              <ButtonsMore onClick={(e) => console.log(e)} />
+              <ButtonsMore OnClick={MoreFunction} />
             </div>
           </div>
 

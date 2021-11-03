@@ -42,7 +42,6 @@ const App = () => {
       setShowTb3(false);
     }
   };
-console.log(showTb1, showTb2, showTb3);
   React.useEffect(() => {
     if (navTab === 'basic') {
       setTabName('First Tab');
@@ -62,8 +61,17 @@ console.log(showTb1, showTb2, showTb3);
       setShowTb1(false);
       setShowTb2(false);
       setShowTb3(true);
+    } else if (navTab === 'success') {
+      setTabName('SuccessTab');
+      setTabRender(<SuccessTab />);
+      setShowTb1(false);
+      setShowTb2(false);
+      setShowTb3(false);
     }
-  }, [navTab]);
+
+
+
+  }, [navTab, ]);
 
   return (
     <>
@@ -76,7 +84,7 @@ console.log(showTb1, showTb2, showTb3);
       <main>
         <div className='form-container'>
           <form method='post' onSubmit={avancar}>
-            <div className='tab-container'>{tabRender}</div>
+            {tabRender}
           </form>
         </div>
       </main>

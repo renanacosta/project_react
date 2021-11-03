@@ -3,10 +3,11 @@ import '../Buttons.css'
 import { Plus } from 'react-feather';
 import { ChevronRight } from 'react-feather';
 
-const ButtonsMore = () => {
+
+const ButtonsMore = (props) => {
     return (
         <>
-            <button className="btn" type="button">
+            <button onClick={() => props.OnClick()}  className="btn" type="button">
                 <Plus />
                 More
                 <ChevronRight />

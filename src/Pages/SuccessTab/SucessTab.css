@@ -1,6 +1,6 @@
-.modal-content {
+.SuccessTab {
   font-family: 'Nunito', sans-serif;
-  color: #767676;
+  color: black;
   background: #ffffff;
   font-size: 16px;
   line-height: 28px;
@@ -9,12 +9,19 @@
   padding-bottom: 19px;
 }
 
-.modal-content p:first-child {
-  color: #074ee8;
-  font-size: 24px;
+.SuccessTab__Title {
+  font-size: 50px;
   text-align: center;
-  padding-bottom: 6px;
-  box-shadow: inset 0px -3px 0px #074ee8;
+  color: chartreuse;
+  text-shadow: 2px 2px black;
+}
+
+
+.SuccessTab__Text {
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
 }
 
 .modal-content p:not(:first-child) {
@@ -31,6 +38,7 @@
   white-space: nowrap;
 }
 
-.btn-close {
+#btn {
   margin-top: 20px !important;
+  margin-right: 20px !important;
 }

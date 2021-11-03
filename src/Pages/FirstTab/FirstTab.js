@@ -7,6 +7,7 @@ import SelectBoxMonth from '../../Components/SelectBox/SelectBoxMonth';
 import SelectBoxYear from '../../Components/SelectBox/SelectBoxYear';
 import CheckBox from '../../Components/CheckBox/CheckBox';
 import ButtonsNext from '../../Components/Buttons/ButtonsNext/ButtonsNext';
+import '../../Components/Buttons/Buttons.css'
 
 
 const FirstTab = ({ menu }) => {
@@ -61,15 +62,14 @@ const FirstTab = ({ menu }) => {
     year:localStorage.getItem('year')};
 
     if (localStorage.getItem('day') !== null) {
-      console.log('entrou')
       setBirthday(birthday);
     }
-    // if (localStorage.getItem('month') !== null) {
-    //   setBirthday({ ...birthday, month: localStorage.getItem('month') });
-    // } 
-    // if (localStorage.getItem('year') !== null) {
-    //   setBirthday({ ...birthday, year: localStorage.getItem('year') });
-    // }
+    if (localStorage.getItem('month') !== null) {
+      setBirthday({ ...birthday, month: localStorage.getItem('month') });
+    } 
+    if (localStorage.getItem('year') !== null) {
+      setBirthday({ ...birthday, year: localStorage.getItem('year') });
+    }
     if (localStorage.getItem('age') !== null) {
       setAge(localStorage.getItem('age'));
     };
@@ -132,6 +132,7 @@ const FirstTab = ({ menu }) => {
                 label="Email *"
                 id="email"
                 value={Email}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 placeholder="foo@bar.com"
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -140,7 +141,7 @@ const FirstTab = ({ menu }) => {
 
             <div className="small-input">
               <GenericInputs
-                type="text"
+                type="tel"
                 label="Phone"
                 id="phone"
                 value={Phone}

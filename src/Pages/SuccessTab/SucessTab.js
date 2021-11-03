@@ -1,6 +1,7 @@
 import React from 'react';
 import './SucessTab.css';
 import ButtonClose from '../../Components/Buttons/ButtonsClose/ButtonsClose';
+import '../../Components/Buttons/Buttons.css';
 
 const SuccessTab = () => {
     return (
@@ -17,16 +18,23 @@ const SuccessTab = () => {
                 <p>Github: {localStorage.getItem('Github')}</p>
                 <p>Linkedin: {localStorage.getItem('Linkedin')}</p>
 
+            </>)}
+            <ButtonClose onClick={
+                () => {
+                    localStorage.clear();
+                    window.location.reload();
+                }   
                 
-            </>
-            )
-            }
-
-            <ButtonClose />
+            } />
         </div>
-    );
+
+    )
 }
 
+
+
+                
+          
 
 
 export default SuccessTab;
