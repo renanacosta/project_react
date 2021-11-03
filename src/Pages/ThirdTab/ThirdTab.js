@@ -1,114 +1,193 @@
-import React, {useState} from 'react';
-import ButtonsFinish from '../../Components/Buttons/ButtonsFinish/ButtonsFinish'
+import React from 'react';
+import SetOutSideCkick from '../../Components/Events/SetOutSideCkick';
+import ButtonsCertificates from '../../Components/Buttons/ButtonsCertificates/ButtonsCertificates';
+import ButtonsFinish from '../../Components/Buttons/ButtonsFinish/ButtonsFinish';
 import ButtonsMore from '../../Components/Buttons/ButtonsMore/ButtonsMore';
 import InputCertificates from '../../Components/InputCertificates/InputCertificates';
 import GenericInputs from '../../Components/GenericInputs/GenericInputs';
-import Titles from '../../Components/Titles/Titles';
-import { Heart } from 'react-feather';
-import { ChevronDown } from 'react-feather';
-import '../../Components/Buttons/Buttons.css';
-import '../../Components/Buttons/ButtonsClose/ButtonsClose'
+import Title from '../../Components/Titles/Titles';
+import { Trash2 } from 'react-feather';
 import './ThirdTab.css';
 
-
 const ThirdTab = ({ menu }) => {
+  const [certificates, setcertificates] = React.useState('');
+  const [certificatesList, setcertificatesList] = React.useState([]);
+  const [heart, setHeart] = React.useState(false);
+  const [teamname, setteamname] = React.useState('');
+  const [institution, setinstitution] = React.useState('');
+  const [graduation, setgraduation] = React.useState('');
+  const favorite = '💙 ';
+  const notFavorite = '🤍 ';
 
-  const [TeamName, setTeamName] = React.useState('');
-  const [Institution, setInstitution] = React.useState('');
-  const [Graduation, setGraduation] = React.useState('');
-
-  React.useEffect(() => {
-    if (localStorage.getItem('TeamName') !== null) {
-      setTeamName(localStorage.getItem('TeamName'));
+  const addCertificate = () => {
+    if (certificatesList[0] === '') {
+      certificatesList.pop();
     }
-    if (localStorage.getItem('Institution') !== null) {
-      setInstitution(localStorage.getItem('Institution'))
-    }
-    if (localStorage.getItem('Graduation') !== null) {
-      setGraduation(localStorage.getItem('Graduation'))
-    };
-  }, [])
-
-  React.useEffect(() => {
-    localStorage.setItem('TeamName', TeamName);
-    localStorage.setItem('Institution', Institution);
-    localStorage.setItem('Graduation', Graduation);
-  }, [TeamName, Institution, Graduation])
-
-// inputCertificates
-  const [certificado, setCertificado] = useState('')
-// coração
-  const [heart, setHeart] = useState(false)
-// lista de certificados
-  const [listUnfavorited, setListUnfavorited] = useState([])
-
-  const [listFavorited, setListFavorited] = useState([])
-
-    const MoreFunction = () => {
-
-      if (certificado !== '') {
-      if ((listFavorited.length + listUnfavorited.length) < 5) {
+    if (certificatesList.length <= 4) {
+      if (certificates) {
         if (heart) {
-          setListFavorited([...listFavorited, certificado])
+          setcertificatesList([
+            favorite.concat(certificates),
+            ...certificatesList,
+          ]);
+        } else {
+          setcertificatesList([
+            ...certificatesList,
+            notFavorite.concat(certificates),
+          ]);
         }
-        else {
-          setListUnfavorited([...listUnfavorited, certificado])
-        }
-        setCertificado('')
-        setHeart(false)
+        setcertificates('');
+        localStorage.setItem('certificatesList', certificatesList);
       } else {
-        alert('Você atingiu o limite de 5 certificados')
+        alert('Please enter a valid certificate.');
       }
+    } else {
+      setcertificates('');
+      alert(
+        'You cannot add more than 5 certificates.\nYou can try to remove one instead.',
+      );
     }
-  }
+  };
+  const removeCertificate = (index) => {
+    const array = [...certificatesList];
+    array.splice(index, 1);
+    setcertificatesList(array);
+    localStorage.setItem('certificatesList', certificatesList);
+  };
 
+  React.useEffect(() => {
+    if (localStorage.getItem('certificates') !== null) {
+      setcertificates(localStorage.getItem('certificates'));
+    }
+    if (localStorage.getItem('certificatesList') !== null) {
+      setcertificatesList(localStorage.getItem('certificatesList').split(','));
+    }
+    if (localStorage.getItem('teamname') !== null) {
+      setteamname(localStorage.getItem('teamname'));
+    }
+    if (localStorage.getItem('institution') !== null) {
+      setinstitution(localStorage.getItem('institution'));
+    }
+    if (localStorage.getItem('graduation') !== null) {
+      setgraduation(localStorage.getItem('graduation'));
+    }
+  }, []);
 
+  React.useEffect(() => {
+    /* Starting variables for faving informations on localStorage */
+    localStorage.setItem('certificates', certificates);
+    localStorage.setItem('certificatesList', certificatesList);
+    localStorage.setItem('teamname', teamname);
+    localStorage.setItem('institution', institution);
+    localStorage.setItem('graduation', graduation);
+  }, [certificates, certificatesList, teamname, institution, graduation]);
 
+  const dropDownRef = React.useRef(null);
+  const [isActive, setIsActive] = SetOutSideCkick(dropDownRef, false);
+
+  const dropDown = () => {
+    if (isActive) {
+      return 'isActive';
+    } else {
+      return 'isNotActive';
+    }
+  };
+  /* Ending variables for faving informations on localStorage */
   return (
     <>
       <section id="third-tab">
-        <Titles text="Team Sign Up" />
+        <Title text="Team Sign Up" />
 
         {menu}
 
         <div id="content_3tab">
           <div id="entry-certificates" className="input-block div-heart">
-            <InputCertificates heart = {heart} setHeart = {setHeart} 
-            certificado = {certificado} setCertificado = {setCertificado}/>
+            <InputCertificates
+              value={certificates}
+              setcertificates={setcertificates}
+              heart={heart}
+              setHeart={setHeart}
+            />
           </div>
-          <div className="input-block btn-space-between btn-more">
-            <div className="certificates-list">
-              <ul className="certificates-ul">
-                <li className="certificates-opt hide">
-                  <span className="certificates-span">Certificates</span>
-                </li>
-                <div className="certificates-favorited">
-                  {(listFavorited.length > 0 || listUnfavorited.length > 0) && (
-                    <div>
-                      <button type="button" className="btn"> 
-                        List of Certificates 
-                      <ChevronDown color='#074EE8' fill='white' />
-                      </button>
-
-                      <ul className="Dropdown" id="Dropdown">
-                        {listFavorited.map((item, index) => (
-                          <li key={index}>
-                            {item} <Heart color='#074EE8' fill='#074EE8' />
-                          </li>
-                        ))}
-                        {listUnfavorited.map((item, index) => (
-                          <li key={index}>
-                            {item} <Heart color='#074EE8' fill='white' />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+          <div className="input-block btn-more">
+            {certificatesList.length > 0 && (
+              <div className="dropDown">
+                <ButtonsCertificates
+                  onClick={() => {
+                    setIsActive(!isActive);
+                  }}
+                />
+                <ul className={dropDown()} ref={dropDownRef}>
+                  {certificatesList[0] && (
+                    <li>
+                      <p>{certificatesList[0]}</p>
+                      <span>
+                        <Trash2
+                          onClick={() => {
+                            removeCertificate(0);
+                          }}
+                          size={15}
+                        />
+                      </span>
+                    </li>
                   )}
-                </div>
-              </ul>
-            </div>
-            <div className="prevent-align-flex-start">
-              <ButtonsMore OnClick={MoreFunction} />
+                  {certificatesList[1] && (
+                    <li>
+                      <p>{certificatesList[1]}</p>
+                      <span>
+                        <Trash2
+                          onClick={() => {
+                            removeCertificate(1);
+                          }}
+                          size={15}
+                        />
+                      </span>
+                    </li>
+                  )}
+                  {certificatesList[2] && (
+                    <li>
+                      <p>{certificatesList[2]}</p>
+                      <span>
+                        <Trash2
+                          onClick={() => {
+                            removeCertificate(2);
+                          }}
+                          size={15}
+                        />
+                      </span>
+                    </li>
+                  )}
+                  {certificatesList[3] && (
+                    <li>
+                      <p>{certificatesList[3]}</p>
+                      <span>
+                        <Trash2
+                          onClick={() => {
+                            removeCertificate(3);
+                          }}
+                          size={15}
+                        />
+                      </span>
+                    </li>
+                  )}
+                  {certificatesList[4] && (
+                    <li>
+                      <p>{certificatesList[4]}</p>
+                      <span>
+                        <Trash2
+                          onClick={() => {
+                            removeCertificate(4);
+                          }}
+                          size={15}
+                        />
+                      </span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )}
+            <div className="btn-to-right">
+              <ButtonsMore onClick={addCertificate} />
             </div>
           </div>
 
@@ -117,9 +196,9 @@ const ThirdTab = ({ menu }) => {
               type="text"
               label="Team Name *"
               id="teamName"
-              value={TeamName}
               placeholder="My Teams Name"
-              onChange={(e) => setTeamName(e.target.value)}
+              value={teamname}
+              setteamname={setteamname}
               required
             />
           </div>
@@ -129,9 +208,9 @@ const ThirdTab = ({ menu }) => {
               type="text"
               label="Institution *"
               id="institution"
-              value={Institution}
               placeholder="Universidade Federal da Paraíba"
-              onChange={(e) => setInstitution(e.target.value)}
+              value={institution}
+              setinstitution={setinstitution}
               required
             />
           </div>
@@ -141,14 +220,14 @@ const ThirdTab = ({ menu }) => {
               type="text"
               label="Graduation *"
               id="graduation"
-              value={Graduation}
               placeholder="Ciência da Computação"
-              onChange={(e) => setGraduation(e.target.value)}
+              value={graduation}
+              setgraduation={setgraduation}
               required
             />
           </div>
 
-          <div className="input-block btn-to-right">
+          <div className="input-block btn-to-right btn-finish">
             <ButtonsFinish id="tab3" />
           </div>
         </div>

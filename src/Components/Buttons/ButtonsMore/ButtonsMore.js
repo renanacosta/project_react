@@ -4,10 +4,16 @@ import { Plus } from 'react-feather';
 import { ChevronRight } from 'react-feather';
 
 
-const ButtonsMore = (props) => {
+const ButtonsMore = ({ id, onClick, ...props }) => {
     return (
         <>
-            <button onClick={() => props.OnClick()}  className="btn" type="button">
+            <button
+                className="btn button-prevent button-more"
+                type="button"
+                id={id}
+                onClick={onClick}
+                {...props}
+            >
                 <Plus />
                 More
                 <ChevronRight />

@@ -2,23 +2,26 @@ import React from 'react';
 import './InputCertificates.css';
 import { Heart } from 'react-feather';
 
-const InputCertificates = (props) => {
+const InputCertificates = ({ value, setcertificates, heart, setHeart }) => {
   return (
     <>
       <label className="labels" htmlFor="certificates">
-        Certificates *
+        Certificates
       </label>
       <div id="input_btn">
         <input
           type="text"
           id="certificates"
           className="input-heart"
-          value={props.certificado}
-          onChange={(e) => props.setCertificado(e.target.value)}
-          placeholder="https://linkedin.com/in/foo-bar-3a0560104/"
+          value={value}
+          onChange={(e) => setcertificates(e.target.value)}
+          placeholder="https://cursos.alura.com.br/certificate/4ad81d87-33a3-48f4-86ac-5d4e3747b761"
         />
-        <button onClick={() => props.setHeart(!props.heart)} type="button" id="btn_heart">
-          <Heart fill={props.heart ? '#074EE8' : 'white'} color={'#074EE8'}/>
+        <button id="btn_heart" type="button">
+          <Heart
+            onClick={() => setHeart(!heart)}
+            className={heart ? 'heartFilled' : ''}
+          />
         </button>
       </div>
     </>
