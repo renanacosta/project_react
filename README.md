@@ -9,7 +9,7 @@ Neste Projeto será implementado o conhecimento adiquirido até aqui, para "conv
 </div>
 
 
-<h4 align="center"> 🚧  React Projeto 2 🚀 Em construção...  🚧 </h4><br />
+<h4 align="center"> 🚧  React Projeto 2 🚀 🚧 </h4><br />
 
 ### Checklist
 
@@ -29,14 +29,15 @@ Neste Projeto será implementado o conhecimento adiquirido até aqui, para "conv
 - [x] Feat: Inputs validation with JavaScript
 - [x] [EXTRA] Feat: Responsivity
 - [x] Event: Auto age calculator
-- [ ] Feat: Auto save on windows change
-- [ ] Event: Adding new certificates + favorites certificates
+- [x] Feat: Auto save on windows change
+- [x] Event: Adding new certificates + favorites certificates
 </br>
 
 ### 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
+- [VsCode](https://code.visualstudio.com/)
 - [ReactJs](https://pt-br.reactjs.org/)
 - [Javascript](https://www.javascript.com/)
 - [CSS](https://reactnative.dev/)
