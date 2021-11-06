@@ -40,7 +40,8 @@ React.useEffect(() => {
               pattern="https?://(www\.)?linkedin.com/in/.*"
               placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
               value={Linkedin}
-              onChange={(e) => setLinkedin(e.target.value)}
+              onChange={(e) => 
+                setLinkedin(e.target.value)}
             />
           </div>
 
@@ -52,7 +53,8 @@ React.useEffect(() => {
               pattern="https?://(www\.)?github.com/[a-zA-Z0-9-_]+"
               placeholder="https://github.com/example"
               value={Github}
-              onChange={(e) => setGithub(e.target.value)}
+              onChange={(e) => 
+                setGithub(e.target.value)}
               required
             />
             <span id="erroGithub"></span>

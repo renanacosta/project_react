@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 
-const SetOutSideCkick = (el, initialState) => {
-    const [isActive, setIsActive] = React.useState(initialState);
+const Click = (event, inicialState) => {
+    const [isActive, setIsActive] = React.useState(inicialState);
 
     useEffect(() => {
-        const onClick = (e) => {
-            if (el.current && !el.current.contains(e.target)) {
+        const onClick = (event) => {
+            if (event.current && !event.current.contains(event.target)) {
                 setIsActive(!isActive);
             }
         };
@@ -17,9 +17,9 @@ const SetOutSideCkick = (el, initialState) => {
         return () => {
             document.removeEventListener('click', onClick);
         };
-    }, [isActive, el]);
+    }, [isActive, event]);
 
     return [isActive, setIsActive];
 };
 
-export default SetOutSideCkick;
+export default Click;

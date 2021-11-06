@@ -15,9 +15,9 @@ const FirstTab = ({ menu }) => {
   const [, setMonth] = React.useState('');
   const [, setYear] = React.useState('');
   const [birthday, setBirthday] = React.useState({
-    day: 0,
-    month: 0,
-    year: 0,
+    day: '',
+    month: '',
+    year: '',
   });
   const [age, setAge] = React.useState('');
   const [FullName, setFullName] = React.useState('');
@@ -29,7 +29,7 @@ const FirstTab = ({ menu }) => {
   React.useEffect(() => {
     const birth = new Date(birthday.year, birthday.month - 1, birthday.day);
 
-    if (birthday.year === 0) {
+    if (birthday.year === '') {
       setAge('');
     } else if (birthday.year !== 0) {
       setAge(
@@ -95,6 +95,9 @@ const FirstTab = ({ menu }) => {
   }, [FullName, Nickname, Email, Phone, birthday.day, birthday.month, birthday.year, age]);
 
 
+  
+
+
   return (
     <>
       <section id="first-tab">
@@ -108,8 +111,10 @@ const FirstTab = ({ menu }) => {
               label="Full Name *"
               id="fullname"
               value={FullName}
-              placeholder="Foo Bar"
+              placeholder="FooBar"
               onChange={(e) => setFullName(e.target.value)}
+              onkeypress="mask(this, mphone)" 
+              onblur="mask(this, mphone)"
               required
             />
           </div>
@@ -156,15 +161,25 @@ const FirstTab = ({ menu }) => {
 
           <div className="input-block flex-line">
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxDay birthday={birthday} setBirthday={setBirthday} setday={setDay}
+              <SelectBoxDay birthday={birthday} 
+              setBirthday={setBirthday} 
+              setday={setDay}
               />
             </div>
+
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxMonth birthday={birthday} setBirthday={setBirthday} setmonth={setMonth}
+              <SelectBoxMonth 
+              birthday={birthday} 
+              setBirthday={setBirthday} 
+              setmonth={setMonth}
               />
             </div>
+
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxYear birthday={birthday} setBirthday={setBirthday} setyear={setYear}
+              <SelectBoxYear 
+              birthday={birthday} 
+              setBirthday={setBirthday} 
+              setyear={setYear}
               />
             </div>
 
@@ -174,7 +189,8 @@ const FirstTab = ({ menu }) => {
                 label="Age"
                 id="age"
                 value={age}
-                placeholder={age}
+                placeholder=""
+                onChange={(e) => setAge(e.target.value)}
                 disabled
               />
             </div>

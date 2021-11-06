@@ -1,28 +1,14 @@
 import React from 'react';
 import './GenericInputs.css';
 
-const GenericInput = ({
-  label,
-  type,
-  id,
-  value,
-  placeholder,
-  setname,
-  setnickname,
-  setemail,
-  setphone,
-  setlinkedin,
-  setgithub,
-  setteamname,
-  setinstitution,
-  setgraduation,
-  ...props
-}) => {
+const GenericInput = ({ label, type, id, value, placeholder, setname, setnickname, setemail, setphone, setlinkedin, setgithub, setteamname, setinstitution, setgraduation, ...props }) => {
+
   return (
     <>
       <label className="labels" htmlFor={id}>
         {label}
       </label>
+
       <input
         className="inputs"
         type={type}

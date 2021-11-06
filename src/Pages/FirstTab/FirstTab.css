@@ -1,7 +1,4 @@
-/* First TAB */
-
-.check-terms,
-.checkmark {
+.check-terms, .checkmark {
   color: #111 !important;
   vertical-align: middle;
 }

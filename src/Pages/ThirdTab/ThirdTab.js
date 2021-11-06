@@ -1,5 +1,5 @@
 import React from 'react';
-import SetOutSideCkick from '../../Components/Events/SetOutSideCkick';
+import SetOutSideCkick from '../../Components/Events/Click';
 import ButtonsCertificates from '../../Components/Buttons/ButtonsCertificates/ButtonsCertificates';
 import ButtonsFinish from '../../Components/Buttons/ButtonsFinish/ButtonsFinish';
 import ButtonsMore from '../../Components/Buttons/ButtonsMore/ButtonsMore';
@@ -26,15 +26,9 @@ const ThirdTab = ({ menu }) => {
     if (certificatesList.length <= 4) {
       if (certificates) {
         if (heart) {
-          setcertificatesList([
-            favorite.concat(certificates),
-            ...certificatesList,
-          ]);
+          setcertificatesList([favorite.concat(certificates), ...certificatesList,]);
         } else {
-          setcertificatesList([
-            ...certificatesList,
-            notFavorite.concat(certificates),
-          ]);
+          setcertificatesList([...certificatesList, notFavorite.concat(certificates),]);
         }
         setcertificates('');
         localStorage.setItem('certificatesList', certificatesList);
@@ -44,7 +38,7 @@ const ThirdTab = ({ menu }) => {
     } else {
       setcertificates('');
       alert(
-        'You cannot add more than 5 certificates.\nYou can try to remove one instead.',
+        'You cannot add more than 5 certificates'
       );
     }
   };
@@ -74,9 +68,8 @@ const ThirdTab = ({ menu }) => {
   }, []);
 
   React.useEffect(() => {
-    /* Starting variables for faving informations on localStorage */
     localStorage.setItem('certificates', certificates);
-    localStorage.setItem('certificatesList', certificatesList);
+    localStorage.setItem('certificatesList', certificatesList,);
     localStorage.setItem('teamname', teamname);
     localStorage.setItem('institution', institution);
     localStorage.setItem('graduation', graduation);
@@ -92,7 +85,7 @@ const ThirdTab = ({ menu }) => {
       return 'isNotActive';
     }
   };
-  /* Ending variables for faving informations on localStorage */
+
   return (
     <>
       <section id="third-tab">
@@ -107,6 +100,7 @@ const ThirdTab = ({ menu }) => {
               setcertificates={setcertificates}
               heart={heart}
               setHeart={setHeart}
+              onChange={(e) => setcertificates(e.target.value)}
             />
           </div>
           <div className="input-block btn-more">
@@ -198,7 +192,9 @@ const ThirdTab = ({ menu }) => {
               id="teamName"
               placeholder="My Teams Name"
               value={teamname}
-              setteamname={setteamname}
+              onChange={(e) => {
+                setteamname(e.target.value);
+              }}
               required
             />
           </div>
@@ -210,7 +206,9 @@ const ThirdTab = ({ menu }) => {
               id="institution"
               placeholder="Universidade Federal da Paraíba"
               value={institution}
-              setinstitution={setinstitution}
+              onChange={(e) => {
+                setinstitution(e.target.value);
+              }}
               required
             />
           </div>
@@ -222,7 +220,9 @@ const ThirdTab = ({ menu }) => {
               id="graduation"
               placeholder="Ciência da Computação"
               value={graduation}
-              setgraduation={setgraduation}
+              onChange={(e) => {
+                setgraduation(e.target.value);
+              }}
               required
             />
           </div>

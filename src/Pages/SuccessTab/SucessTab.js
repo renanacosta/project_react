@@ -6,8 +6,7 @@ import '../../Components/Buttons/Buttons.css';
 const SuccessTab = () => {
     return (
         <div className="SuccessTab">
-            <h3 className="SuccessTab__Title">Success!</h3>
-            <p className="SuccessTab__Text">Your registration was successfully.</p>
+            <h3 className="SuccessTab__Title">Your registration was successfully.</h3>
             {localStorage.getItem('Github') && (<>
                 <p>Full Name: {localStorage.getItem('FullName')}</p>
                 <p>Nickname: {localStorage.getItem('Nickname')}</p>
@@ -15,26 +14,22 @@ const SuccessTab = () => {
                 <p>Phone: {localStorage.getItem('Phone')}</p>
                 <p>Birthday: {localStorage.getItem('day')}/{localStorage.getItem('month')}/{localStorage.getItem('year')}</p>
                 <p>Age: {localStorage.getItem('age')}</p>
-                <p>Github: {localStorage.getItem('Github')}</p>
                 <p>Linkedin: {localStorage.getItem('Linkedin')}</p>
+                <p>Github: {localStorage.getItem('Github')}</p>
+                <p>Certificates: {localStorage.getItem('certificatesList').split(',')}</p>
+                <p>Team Name: {localStorage.getItem('teamname')}</p>
+                <p>Institution: {localStorage.getItem('institution')}</p>
+                <p>Graduation: {localStorage.getItem('graduation')}</p> 
 
             </>)}
-            <ButtonClose onClick={
-                () => {
-                    localStorage.clear();
-                    window.location.reload();
-                }   
-                
-            } />
-        </div>
 
+            <div className="SuccessTab__Buttons btn-to-right">
+                <ButtonClose />
+            </div>
+        </div>
     )
 }
 
 
-
-                
-          
-
-
 export default SuccessTab;
+
