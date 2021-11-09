@@ -15,7 +15,7 @@ const App = () => {
   const [showTab2, setShowTab2] = React.useState(false);
   const [showTab3, setShowTab3] = React.useState(false);
 
-  const [BlockTab2, setBlockTab2] = React.useState(false);
+  const [BlockTab2, setBlockTab2] = React.useState(true);
   const [BlockTab3, setBlockTab3] = React.useState(true);
 
   const tb1 = (
@@ -23,11 +23,11 @@ const App = () => {
       setBlockTab2={setBlockTab2}
       setBlockTab3={setBlockTab3}
       menu={
-        <TabsMenu
+        <TabsMenu 
           active1
-          setNavTab={setNavTab}
-          setBlockTab2={setBlockTab2}
-          setBlockTab3={setBlockTab3}
+          setNavTab={setNavTab} 
+          BlockTab2={BlockTab2}
+          BlockTab3={BlockTab3}
         />
       }
     />

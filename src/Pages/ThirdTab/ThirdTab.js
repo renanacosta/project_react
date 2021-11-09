@@ -16,8 +16,8 @@ const ThirdTab = ({ menu }) => {
   const [teamname, setteamname] = React.useState('');
   const [institution, setinstitution] = React.useState('');
   const [graduation, setgraduation] = React.useState('');
-  const favorite = '💙 ';
-  const notFavorite = '🤍 ';
+  const favorite = '💙';
+  const notFavorite = '🤍';
 
   const addCertificate = () => {
     if (certificatesList[0] === '') {

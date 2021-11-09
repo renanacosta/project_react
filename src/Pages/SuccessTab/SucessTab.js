@@ -16,7 +16,9 @@ const SuccessTab = () => {
                 <p>Age: {localStorage.getItem('age')}</p>
                 <p>Linkedin: {localStorage.getItem('Linkedin')}</p>
                 <p>Github: {localStorage.getItem('Github')}</p>
-                <p>Certificates: {localStorage.getItem('certificatesList').split(',')}</p>
+                <p>Certificates: {localStorage.getItem('certificatesList').split(',').map(certificate=>{
+return (<p> {certificate}</p>) 
+                })}</p>
                 <p>Team Name: {localStorage.getItem('teamname')}</p>
                 <p>Institution: {localStorage.getItem('institution')}</p>
                 <p>Graduation: {localStorage.getItem('graduation')}</p> 

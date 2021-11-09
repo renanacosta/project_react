@@ -4,7 +4,7 @@ import GenericInputs from '../../Components/GenericInputs/GenericInputs';
 import Titles from '../../Components/Titles/Titles';
 import './SecondTab.css';
 
-const SecondTab = ({ menu }) => {
+const SecondTab = ({ menu,setBlockTab3 }) => {
   const [Linkedin, setLinkedin] = React.useState('');
   const [Github, setGithub] = React.useState('');
 
@@ -19,8 +19,12 @@ React.useEffect(() => {
 React.useEffect(() => {
     localStorage.setItem('Linkedin', Linkedin);
     localStorage.setItem('Github', Github);
-
-  }, [Linkedin, Github])
+    if(!localStorage.getItem('Github')){
+      setBlockTab3(true)
+    }else{
+      setBlockTab3(false)
+    }
+  }, [Linkedin, Github,setBlockTab3])
 
 
 

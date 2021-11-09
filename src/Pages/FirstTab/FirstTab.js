@@ -10,7 +10,7 @@ import ButtonsNext from '../../Components/Buttons/ButtonsNext/ButtonsNext';
 import '../../Components/Buttons/Buttons.css'
 
 
-const FirstTab = ({ menu }) => {
+const FirstTab = ({ menu, setBlockTab2, setBlockTab3 }) => {
   const [, setDay] = React.useState('');
   const [, setMonth] = React.useState('');
   const [, setYear] = React.useState('');
@@ -24,7 +24,7 @@ const FirstTab = ({ menu }) => {
   const [Nickname, setNickname] = React.useState('');
   const [Email, setEmail] = React.useState('');
   const [Phone, setPhone] = React.useState('');
-
+  const [checked, setChecked] = React.useState(false)
 
   React.useEffect(() => {
     const birth = new Date(birthday.year, birthday.month - 1, birthday.day);
@@ -57,23 +57,28 @@ const FirstTab = ({ menu }) => {
       setPhone(localStorage.getItem('Phone'));
     }
 
-    let birthday= {day:localStorage.getItem('day'), 
-    month:localStorage.getItem('month'), 
-    year:localStorage.getItem('year')};
+    let birthday = {
+      day: localStorage.getItem('day'),
+      month: localStorage.getItem('month'),
+      year: localStorage.getItem('year')
+    };
 
     if (localStorage.getItem('day') !== null) {
       setBirthday(birthday);
     }
     if (localStorage.getItem('month') !== null) {
       setBirthday({ ...birthday, month: localStorage.getItem('month') });
-    } 
+    }
     if (localStorage.getItem('year') !== null) {
       setBirthday({ ...birthday, year: localStorage.getItem('year') });
     }
     if (localStorage.getItem('age') !== null) {
       setAge(localStorage.getItem('age'));
     };
-  },[])
+    if (localStorage.getItem('checkbox') !== null) {
+      setChecked(localStorage.getItem('checkbox'))
+    }
+  }, [])
 
 
   React.useEffect(() => {
@@ -85,17 +90,35 @@ const FirstTab = ({ menu }) => {
       localStorage.setItem('day', birthday.day);
     }
     if (birthday.month !== 0) {
-    localStorage.setItem('month', birthday.month);
+      localStorage.setItem('month', birthday.month);
     }
     if (birthday.year !== 0) {
-    localStorage.setItem('year', birthday.year);
+      localStorage.setItem('year', birthday.year);
     }
     localStorage.setItem('age', age);
 
-  }, [FullName, Nickname, Email, Phone, birthday.day, birthday.month, birthday.year, age]);
+    localStorage.setItem('checkbox', checked)
+
+    if (
+      !localStorage.getItem('FullName') ||
+      !localStorage.getItem('Email') ||
+      !localStorage.getItem('day') ||
+      !localStorage.getItem('month') ||
+      !localStorage.getItem('year') ||
+      !localStorage.getItem('age') ||
+      !localStorage.getItem('checkbox')
+    ) {
+      setBlockTab2(true);
+    } else {
+      setBlockTab2(false);
+    }
+    if (!localStorage.getItem('Github')) {
+      setBlockTab3(true);
+    }
+  }, [FullName, Nickname, Email, Phone, birthday.day, birthday.month, birthday.year, age, setBlockTab2, setBlockTab3]);
 
 
-  
+
 
 
   return (
@@ -113,7 +136,7 @@ const FirstTab = ({ menu }) => {
               value={FullName}
               placeholder="FooBar"
               onChange={(e) => setFullName(e.target.value)}
-              onkeypress="mask(this, mphone)" 
+              onkeypress="mask(this, mphone)"
               onblur="mask(this, mphone)"
               required
             />
@@ -161,25 +184,25 @@ const FirstTab = ({ menu }) => {
 
           <div className="input-block flex-line">
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxDay birthday={birthday} 
-              setBirthday={setBirthday} 
-              setday={setDay}
+              <SelectBoxDay birthday={birthday}
+                setBirthday={setBirthday}
+                setday={setDay}
               />
             </div>
 
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxMonth 
-              birthday={birthday} 
-              setBirthday={setBirthday} 
-              setmonth={setMonth}
+              <SelectBoxMonth
+                birthday={birthday}
+                setBirthday={setBirthday}
+                setmonth={setMonth}
               />
             </div>
 
             <div className="grid-collum four-inputs-by-line">
-              <SelectBoxYear 
-              birthday={birthday} 
-              setBirthday={setBirthday} 
-              setyear={setYear}
+              <SelectBoxYear
+                birthday={birthday}
+                setBirthday={setBirthday}
+                setyear={setYear}
               />
             </div>
 
@@ -198,6 +221,8 @@ const FirstTab = ({ menu }) => {
 
           <div id="terms" className="input-block">
             <CheckBox
+              setChecked={setChecked}
+              checked={checked}
               label="I accept the terms and privacy"
             />
           </div>

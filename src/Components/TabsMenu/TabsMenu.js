@@ -1,7 +1,11 @@
 import React from 'react';
 import './TabsMenu.css';
 
-const TabsMenu = ({ active1, active2, active3, setNavTab }) => {
+const TabsMenu = ({ active1, active2, active3, setNavTab,BlockTab2,BlockTab3}) => {
+
+  const hadleClickTab1 = () =>{
+  setNavTab('FirstTab')
+  }
 
   //basic
   if (active1) {
@@ -21,28 +25,27 @@ const TabsMenu = ({ active1, active2, active3, setNavTab }) => {
   }
 
   
-
   return (
     <>
       <div className="tabs-container">
         <div
           className={`tabs basic ${active1}`}
           onClick={() =>
-            setNavTab('basic')}
+            setNavTab('FirstTab')}
         >
           <span className="basic_span">Basic</span>
         </div>
         <div
           className={`tabs social ${active2}`}
-          onClick={() =>
-            setNavTab('social')}
+          onClick={() =>{
+            !BlockTab2 && setNavTab('SecondTab')}}
         >
           <span className="social_span">Social</span>
         </div>
         <div
           className={`tabs certificates ${active3}`}
           onClick={() =>
-            setNavTab('certificates')}
+            !BlockTab3 && setNavTab('ThirdTab')}
         >
           <span className="certificates_span">Certificates</span>
         </div>
