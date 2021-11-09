@@ -1,12 +1,11 @@
 import React from 'react';
 import './SelectBox.css';
 
-const SelectBoxYear = () => {
+const SelectBoxYear = (props) => {
   const anos = Array.from(
     { length: 110 },
     (a, b) => b + new Date().getFullYear() - 109,
   );
-  console.log(anos);
   return (
     <>
       <label className="labels" htmlFor="year">
@@ -17,11 +16,16 @@ const SelectBoxYear = () => {
         id="year"
         name="year"
         required
+        onChange={(e) => {
+          props.setBirthday({ ...props.birthday, year: e.target.value });
+          props.setyear(e.target.value); 
+        }}
+
       >
         <option value=""></option>
         {anos.reverse().map((ano) => {
           return (
-            <option key={ano} value={ano}>
+            <option selected={parseInt(props.birthday.year) === parseInt(ano)} key={ano} value={ano}>
               {ano}
             </option>
           );

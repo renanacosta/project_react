@@ -9,7 +9,8 @@ Neste Projeto será implementado o conhecimento adiquirido até aqui, para "conv
 </div>
 
 
-<h4 align="center"> 🚧  React Projeto 2 🚀 🚧 </h4><br />
+<h4 align="center"> 🚧 React Projeto 2 🚀 🚧 </h4><br />
+
 
 ### Checklist
 

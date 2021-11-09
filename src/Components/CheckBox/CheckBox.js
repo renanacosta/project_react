@@ -1,11 +1,13 @@
 import React from 'react';
 import './CheckBox.css';
 
-const CheckBox = () => {
+const CheckBox = ({checked,setChecked}) => {
   return (
     <label id="terms-label" className="check-terms">
       I accept the terms and privacy
       <input
+        checked={checked}
+        onChange={()=>setChecked(!checked)}
         id="terms-input"
         type="checkbox"
         required
